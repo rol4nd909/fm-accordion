@@ -16,7 +16,10 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 @import-glob 'utilities/*.css' layer(components); 
 */
 
+/* BLOCKS */
 @import "blocks/prose.css" layer(components);
+
+/* COMPONENTS */
 @import "components/box.css" layer(components);
 @import "components/cluster.css" layer(components);
 @import "components/flow.css" layer(components);
@@ -26,6 +29,8 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 @import "components/sidebar.css" layer(components);
 @import "components/switcher.css" layer(components);
 @import "components/wrapper.css" layer(components);
+
+/* UTILITIES */
 @import "utilities/region.css" layer(components);
 @import "utilities/sr-only.css" layer(components);
 

@@ -1,4 +1,4 @@
-const viewports = require('../design-tokens/viewports.json');
+import { min as _min, max as _max } from '../design-tokens/viewports.json';
 
 /**
  * Takes an array of tokens and sends back and array of name
@@ -20,8 +20,8 @@ const clampGenerator = tokens => {
     const maxSize = max / rootSize;
 
     // Convert the pixel viewport sizes into rems
-    const minViewport = viewports.min / rootSize;
-    const maxViewport = viewports.max / rootSize;
+    const minViewport = _min / rootSize;
+    const maxViewport = _max / rootSize;
 
     // Slope and intersection allow us to have a fluid value but also keep that sensible
     const slope = (maxSize - minSize) / (maxViewport - minViewport);
@@ -36,4 +36,4 @@ const clampGenerator = tokens => {
   });
 };
 
-module.exports = clampGenerator;
+export default clampGenerator;
