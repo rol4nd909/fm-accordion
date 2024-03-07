@@ -32,16 +32,11 @@ body {
     );
   background-repeat: no-repeat;
   background-size:
-    67.6875rem 16.9375rem,
+    clamp(67.688rem, 23.063rem + 119vw, 90rem)
+      clamp(16.938rem, 10.813rem + 16.33vw, 20rem),
     auto;
   background-position: center top;
   background-color: var(--color-light);
-
-  @media (--for-tablet-l-up) {
-    background-size:
-      90rem 20rem,
-      auto;
-  }
 
   @media (--for-desktop-l-up) {
     background-size:
