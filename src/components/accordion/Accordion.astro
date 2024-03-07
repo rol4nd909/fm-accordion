@@ -42,16 +42,17 @@ const { accordionItems, title, isFirstExpanded } = Astro.props;
           </button>
         </h2>
 
-        <section
+        <div
           class="js-accordion-content"
           id={`panel${index}-content`}
           aria-labelledby={`panel${index}-heading`}
           aria-hidden={isFirstExpanded && index === 0 ? "false" : "true"}
+          role="region"
         >
           <div class="answer">
             <p>{item.answer}</p>
           </div>
-        </section>
+        </div>
       </div>
     ))
   }

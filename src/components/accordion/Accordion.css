@@ -2,12 +2,13 @@
   --duration: 375ms;
   --ease: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  margin-block-end: 2rems;
+  margin-block-end: 2rem;
   padding-block-start: clamp(1.625rem, -0.375rem + 5.33vw, 2.625rem);
   padding-block-end: clamp(0rem, -2rem + 5.33vw, 1rem);
   padding-inline: clamp(1.5rem, -0.5rem + 5.33vw, 2.5rem);
   background-color: var(--color-nutral);
   border-radius: clamp(0.5rem, -0.5rem + 2.67vw, 1rem);
+  box-shadow: 0 -0.5rem 3rem hsl(292 42% 14% / 0.3);
 }
 
 h1 {
@@ -32,9 +33,11 @@ h1 {
     border-block-start: 1px solid var(--color-light);
   }
 
-  &:is(:hover, :focus-within) {
-    button {
-      color: var(--color-highlight);
+  @media (--is-mouse) {
+    &:is(:hover, :focus-within) {
+      button {
+        color: var(--color-highlight);
+      }
     }
   }
 
@@ -43,7 +46,7 @@ h1 {
     outline-offset: 2px;
   }
 
-  > section {
+  > div {
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows var(--duration) var(--ease);
@@ -89,6 +92,7 @@ button {
   text-align: left;
   cursor: pointer;
   transition: color var(--duration) var(--ease);
+  color: var(--color-primary);
 
   > svg {
     flex-grow: 0;
