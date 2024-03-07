@@ -7,5 +7,6 @@ import icon from "astro-icon";
 export default defineConfig({
   prefetch: true,
   site: 'https://rol4nd909.github.io',
+  base: '/fm-accordion/',
   integrations: [tailwind(), icon()]
 });
