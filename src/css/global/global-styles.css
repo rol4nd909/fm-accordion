@@ -35,6 +35,7 @@ body {
     background-position: center top;
     background-color: var(--color-primary);
     pointer-events: none;
+
     @media (--for-desktop-l-up) {
       background-size: 100% 20rem;
     }
