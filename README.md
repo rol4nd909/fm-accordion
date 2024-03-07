@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/build-with-astro-combined-with-cubecss-tailwind-boilerplate-sCpAaZZvug)
+- Live Site URL: [live site](https://rol4nd909.github.io/fm-accordion/)
 
 ## My process
 
