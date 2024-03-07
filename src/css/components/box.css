@@ -5,15 +5,16 @@ More info: https://every-layout.dev/layouts/box/#the-generator
 
 .box {
   @apply text-dark bg-light;
+
   padding: var(--space-s-m);
-}
 
-.box * {
-  color: inherit;
-}
+  * {
+    color: inherit;
+  }
 
-.box.invert {
-  @apply bg-dark text-light;
+  &.invert {
+    @apply bg-dark text-light;
 
-  filter: none;
+    filter: none;
+  }
 }

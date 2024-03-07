@@ -7,16 +7,24 @@
       "value": "transparent"
     },
     {
+      "name": "Nutral",
+      "value": "hsl(0 0% 100%)"
+    },
+    {
       "name": "Dark",
-      "value": "#030303"
+      "value": "hsl(292 16% 49%)"
     },
     {
       "name": "Light",
-      "value": "#ffffff"
+      "value": "hsl(275 100% 97%)"
     },
     {
       "name": "Primary",
-      "value": "#02394A"
+      "value": "hsl(292 42% 14%)"
+    },
+    {
+      "name": "Highlight",
+      "value": "hsl(281 83% 54%)"
     }
   ]
 }

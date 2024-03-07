@@ -1,18 +1,68 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+
+const items = await getCollection("faqs");
 ---
 
-<Layout title="Welcome to Astro.">
-  <article class="wrapper flow">
-    <h1>CUBE CSS core setup</h1>
-    <div class="switcher">
-      <h2 class="text-primary">A heading and paragraph in two columns</h2>
-      <p>
-        Donec sed odio dui. Donec sed odio dui. Vivamus sagittis lacus vel augue
-        laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue
-        laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel
-        scelerisque nisl consectetur et.
-      </p>
-    </div>
-  </article>
+<Layout title="Frontend Mentor - FAQ accordion challenge">
+  <main>
+    <h1>FAQs</h1>
+    <ul class="aap">
+      {
+        items.map((item) => (
+          <li>
+            <details>
+              <summary>{item.data.question}</summary>
+              <p>{item.data.answer}</p>
+            </details>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
 </Layout>
+
+<!-- <style>
+  main {
+    min-block-size: 100vh;
+    background-image: url("/design/mobile-design.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    @media (--for-tablet-l-up) {
+      background-image: url("/design/desktop-design.jpg");
+    }
+  }
+
+  .grid {
+    margin-block-start: 10rem;
+    gap: 2rem;
+
+    > div {
+      inline-size: 5rem;
+      aspect-ratio: 1;
+      background-color: var(--clr);
+
+      &:nth-child(1) {
+        --clr: var(--color-primary);
+      }
+
+      &:nth-child(2) {
+        --clr: var(--color-highlight);
+      }
+
+      &:nth-child(3) {
+        --clr: var(--color-dark);
+      }
+
+      &:nth-child(4) {
+        --clr: var(--color-light);
+      }
+
+      &:nth-child(5) {
+        --clr: var(--color-nutral);
+      }
+    }
+  }
+</style> -->
