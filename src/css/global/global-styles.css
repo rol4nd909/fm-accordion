@@ -5,10 +5,46 @@
   project: https://cube.fyi/css.html
 */
 body {
-  background: var(--color-light);
-  color: var(--color-dark);
-  font-size: var(--size-step-0);
-  font-family: var(--font-base);
-  line-height: var(--leading-standard);
+  --_gradient-stop: clamp(14.5rem, 3.5rem + 29.33vw, 20rem);
+  --_content-offset: clamp(8.875rem, 5.75rem + 8.33vw, 10.438rem);
+
+  display: grid;
+  grid-template-columns: minmax(1.5rem, 1fr) minmax(0, 37.5rem) minmax(
+      1.5rem,
+      1fr
+    );
+  grid-template-rows:
+    var(--_content-offset)
+    calc(var(--_gradient-stop) - var(--_content-offset))
+    1fr;
+
   margin: 0;
+  font-family: var(--font-base);
+  font-size: var(--size-step-0);
+  line-height: var(--leading-standard);
+  color: var(--color-dark);
+  background-image: url(/images/background-pattern.svg),
+    linear-gradient(
+      to bottom,
+      var(--color-primary),
+      var(--color-primary) var(--_gradient-stop),
+      transparent var(--_gradient-stop)
+    );
+  background-repeat: no-repeat;
+  background-size: 67.6875rem 16.9375rem;
+  background-position: center top;
+  background-color: var(--color-light);
+
+  @media (--for-tablet-l-up) {
+    background-size: 90rem 20rem;
+  }
+
+  @media (--for-desktop-l-up) {
+    background-size: 100% 20rem;
+  }
+
+  > main {
+    grid-column: 2;
+    grid-row: 2 / -1;
+  }
 }

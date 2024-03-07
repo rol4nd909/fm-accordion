@@ -1,68 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
+import Accordion from "@components/accordion/Accordion.astro";
 
 const items = await getCollection("faqs");
 ---
 
 <Layout title="Frontend Mentor - FAQ accordion challenge">
   <main>
-    <h1>FAQs</h1>
-    <ul class="aap">
-      {
-        items.map((item) => (
-          <li>
-            <details>
-              <summary>{item.data.question}</summary>
-              <p>{item.data.answer}</p>
-            </details>
-          </li>
-        ))
-      }
-    </ul>
+    <Accordion
+      accordionItems={items.map((i) => i.data)}
+      title="FAQs"
+      isFirstExpanded
+    />
   </main>
 </Layout>
-
-<!-- <style>
-  main {
-    min-block-size: 100vh;
-    background-image: url("/design/mobile-design.jpg");
-    background-position: top center;
-    background-repeat: no-repeat;
-
-    @media (--for-tablet-l-up) {
-      background-image: url("/design/desktop-design.jpg");
-    }
-  }
-
-  .grid {
-    margin-block-start: 10rem;
-    gap: 2rem;
-
-    > div {
-      inline-size: 5rem;
-      aspect-ratio: 1;
-      background-color: var(--clr);
-
-      &:nth-child(1) {
-        --clr: var(--color-primary);
-      }
-
-      &:nth-child(2) {
-        --clr: var(--color-highlight);
-      }
-
-      &:nth-child(3) {
-        --clr: var(--color-dark);
-      }
-
-      &:nth-child(4) {
-        --clr: var(--color-light);
-      }
-
-      &:nth-child(5) {
-        --clr: var(--color-nutral);
-      }
-    }
-  }
-</style> -->

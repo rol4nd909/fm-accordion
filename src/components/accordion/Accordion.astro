@@ -1,0 +1,96 @@
+---
+import "./Accordion.css";
+
+import slugify from "slugify";
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  accordionItems: CollectionEntry<"faqs">["data"][];
+  title: string;
+  isFirstExpanded?: boolean;
+};
+
+const { accordionItems, title, isFirstExpanded } = Astro.props;
+---
+
+<section
+  class="accordion js_accordion"
+  aria-labelledby={slugify(title)}
+  data-isFirstExpanded={isFirstExpanded}
+>
+  <h1 class="text-step-5 text-primary" id={slugify(title)}>
+    <Icon name="icon-star" width={40} />
+    {title}
+  </h1>
+
+  {
+    accordionItems.map((item, index) => (
+      <div class="panel js-accordion-panel">
+        <h2 id={`panel${index}-heading`}>
+          <button
+            class="js-accordion-trigger"
+            aria-controls={`panel${index}-content`}
+            aria-expanded={isFirstExpanded && index === 0 ? "true" : "false"}
+          >
+            <span>{item.question}</span>
+
+            <svg viewBox="0 0 32 32">
+              <line x1="16" y1="4" x2="16" y2="28" stroke="currentColor" />
+              <line x1="4" y1="16" x2="28" y2="16" stroke="currentColor" />
+            </svg>
+          </button>
+        </h2>
+
+        <section
+          class="js-accordion-content"
+          id={`panel${index}-content`}
+          aria-labelledby={`panel${index}-heading`}
+          aria-hidden={isFirstExpanded && index === 0 ? "false" : "true"}
+        >
+          <div class="answer">
+            <p>{item.answer}</p>
+          </div>
+        </section>
+      </div>
+    ))
+  }
+</section>
+
+<script>
+  export const Accordion = (domNode: HTMLElement) => {
+    const toggleAccordion = (panelToActivate: HTMLElement) => {
+      const activeButton = panelToActivate.querySelector<HTMLButtonElement>(
+        ".js-accordion-trigger"
+      );
+      const activePanel = panelToActivate.querySelector<HTMLElement>(
+        ".js-accordion-content"
+      );
+      const activePanelIsOpened = activeButton?.getAttribute("aria-expanded");
+
+      if (activePanelIsOpened === "true") {
+        activeButton?.setAttribute("aria-expanded", "false");
+        activePanel?.setAttribute("aria-hidden", "true");
+      } else {
+        activeButton?.setAttribute("aria-expanded", "true");
+        activePanel?.setAttribute("aria-hidden", "false");
+      }
+    };
+
+    const onButtonClick = (e: Event) => {
+      const activePanel = (e.target as HTMLElement).closest(
+        ".js-accordion-panel"
+      ) as HTMLElement;
+
+      if (!activePanel) return;
+
+      toggleAccordion(activePanel);
+    };
+
+    domNode.addEventListener("click", onButtonClick);
+  };
+
+  // init accordions
+  const accordions = document.querySelectorAll<HTMLElement>(".accordion");
+  accordions.forEach(Accordion);
+</script>

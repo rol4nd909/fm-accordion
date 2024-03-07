@@ -26,4 +26,5 @@
 @custom-media --until-tablet-l (width < 56.25em);
 @custom-media --for-tablet-l-up (width >= 56.25em);
 @custom-media --for-desktop-up (width >= 75em);
+@custom-media --for-desktop-l-up (width >= 90em);
 @custom-media --for-big-desktop-up (width >= 112.5em);
