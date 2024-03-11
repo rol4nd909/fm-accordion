@@ -1,9 +1,6 @@
 @font-face {
   font-family: "Work Sans";
-  src:
-    local("Work Sans Regular") url("/fm-accordion/fonts/WorkSans-Regular.woff2")
-      format("woff2"),
-    url("/fm-accordion/fonts/WorkSans-Regular.woff") format("woff");
+  src: url("/fm-accordion/fonts/WorkSans-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,10 +8,7 @@
 
 @font-face {
   font-family: "Work Sans";
-  src:
-    local("Work Sans SemiBold")
-      url("/fm-accordion/fonts/WorkSans-SemiBold.woff2") format("woff2"),
-    url("/fm-accordion/fonts/WorkSans-SemiBold.woff") format("woff");
+  src: url("/fm-accordion/fonts/WorkSans-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -22,10 +16,7 @@
 
 @font-face {
   font-family: "Work Sans";
-  src:
-    local("Work Sans Bold") url("/fm-accordion/fonts/WorkSans-Bold.woff2")
-      format("woff2"),
-    url("/fm-accordion/fonts/WorkSans-Bold.woff") format("woff");
+  src: url("/fm-accordion/fonts/WorkSans-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
