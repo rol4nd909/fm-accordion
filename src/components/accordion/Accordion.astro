@@ -2,6 +2,7 @@
 import slugify from "slugify";
 import { Icon } from "astro-icon/components";
 import type { CollectionEntry } from "astro:content";
+import IconStar from "./src/icons/icon-star.svg";
 
 type Props = {
   accordionItems: CollectionEntry<"faqs">["data"][];
@@ -18,7 +19,7 @@ const { accordionItems, title, isFirstExpanded } = Astro.props;
   data-isFirstExpanded={isFirstExpanded}
 >
   <h1 class="text-step-5 text-primary" id={slugify(title)}>
-    <Icon name="icon-star" width={40} />
+    <IconStar width={40} aria-hidden />
     {title}
   </h1>
 
